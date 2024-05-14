@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Market</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Book Market</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" method="GET">
+            {% csrf_token %}
+            <div class="search-form">
+                <input type="text" name="query" placeholder="Search by title" value="{{ query }}">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div class="book-buttons">
+            <button class="add-book"><a href="{% url 'add_book' %}"> Book</a></button>
+            <button class="delete-book">Delete Book</button>
+            <button class="edit-book">Edit Book</button>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="books container">
+        <h2>Featured Books</h2>
+
+        <div class="book">
+
+                <img src="{% static book.image.name %}" alt="{{ task.image.name }}">
+                <h3>{{ book.title }}</h3>
+                <p>Genre: {{ book.genre }}</p>
+                <p>Author: {{ book.Author }}</p>
+                <p>Price: {{ book.price }}</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+    </div>
+</footer>
+</body>
+</html>

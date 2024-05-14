@@ -1,0 +1,75 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Market</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Book Market</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <form class="search-form" method="GET">
+            {% csrf_token %}
+            <div class="search-form">
+                <input type="text" name="query" placeholder="Search by title" value="{{ query }}">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div class="book-buttons">
+            <button class="add-book"><a href="{% url 'add_book' %}"> Book</a></button>
+            <button class="delete-book">Delete Book</button>
+            <button class="edit-book">Edit Book</button>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="books container">
+        <h2>Featured Books</h2>
+        {% for task in page_obj %}
+        <div class="book">
+            <a href="{% url 'book_detail' task.id %}">
+                <img src="{% static task.image.name %}" alt="{{ task.image.name }}">
+                <h3>{{ task.title }}</h3>
+                <p>Genre: {{ task.genre }}</p>
+                <p>Author: {{ task.Author }}</p>
+                <p>Price: {{ task.price }}</p>
+            </a>
+            <button class="delete-book"><a href="{% url 'delete_book' task.id %}">Delete Book</a></button>
+            <button class="edit-book"><a href="{% url 'edit_book' task.id %}">Edit Book</a></button>
+        </div>.0
+
+        {% endfor %}
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1{% if query %}&query={{ query }}{% endif %}">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if query %}&query={{ query }}{% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if query %}&query={{ query }}{% endif %}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if query %}&query={{ query }}{% endif %}">last &raquo;</a>
+        {% endif %}
+      </span></p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Educational registration form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'add_style.css'%}">
+</head>
+<body>
+<div class="main-block">
+    <div class="left-part">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>Register to our courses</h1>
+        <p>W3docs provides free learning materials for programming languages like HTML, CSS, Java Script, PHP etc.</p>
+        <div class="btn-group">
+            <a class="btn-item" href="{% url 'members'%}">exit</a>
+        </div>
+    </div>
+    <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i>
+            <h2>Register here</h2>
+        </div>
+        <div class="info">
+            <input class="fname" type="text" name="title" placeholder="{{book.title}}" value="{{book.title}}">
+            <input type="text" name="description" placeholder="{{book.description}}" value="{{book.description}}">
+            <input type="text" name="author" placeholder="{{book.author}}"value="{{book.author}}">
+            <input type="date" name="year" placeholder="{{book.year}}" value="{{book.year}}">
+            <input type="number" name="price" placeholder="{{book.price}}" value="{{book.price}}">
+            <select name="genre" >
+                <option value="course-type" selected>{{book.genre}}</option>
+                <option value="qosiq">qosiq</option>
+                <option value="Ertek">Ertek</option>
+                <option value="Roman">Roman</option>
+                <option value="shig'arma">shig'arma</option>
+                <option value="Dastan">Dastan</option>
+            </select>
+            <input type="file" name="image" placeholder="{{book.image}}" value="{{book.image}}">
+
+        </div>
+        <div class="checkbox">
+            <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
+        </div>
+        <button type="submit" href="/">Submit</button>
+    </form>
+</div>
+</body>
+</html>

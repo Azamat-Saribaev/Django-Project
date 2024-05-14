@@ -1,0 +1,153 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header styles */
+  header {
+    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    list-style: none;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .search-form {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+  }
+
+  .search-form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    font-size: 16px;
+  }
+
+  .search-form button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .book-buttons {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .book-buttons button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  /* Main styles */
+  main {
+    padding: 20px;
+  }
+
+  .books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .book {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+
+  .book:hover {
+    transform: translateY(-5px);
+  }
+
+  .book img {
+    max-width: 150%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .book h3 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .book p {
+    margin-top: 7px;
+    font-size: 25px;
+  }
+
+  .book button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .book button:hover {
+    background-color: #45a049;
+  }
+
+  /* Footer styles */
+  footer {
+    background: #333;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+/* Heading styles */
+h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
